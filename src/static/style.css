@@ -1,0 +1,104 @@
+/* Background image and blur effect using a pseudo-element overlay */
+body.bg-gradient {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* The blurred background image */
+body.bg-gradient::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: url('/static/image/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px) brightness(0.7);
+    opacity: 1;
+}
+
+/* Optional: a semi-transparent overlay for better contrast */
+body.bg-gradient::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(30,60,114,0.6) 0%, rgba(42,82,152,0.6) 100%);
+    opacity: 1;
+}
+
+/* Glassmorphism card style */
+.card.glassmorphism {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Gradient text for headings */
+.gradient-text {
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Gradient button style */
+.btn-gradient {
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 4px 14px 0 rgba(221,36,118,0.15);
+}
+.btn-gradient:hover {
+    background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+    color: #fff;
+    box-shadow: 0 6px 20px 0 rgba(221,36,118,0.25);
+}
+
+/* Input focus effect */
+.input-glow:focus {
+    box-shadow: 0 0 0 0.2rem rgba(221,36,118,0.25);
+    border-color: #dd2476;
+}
+
+/* Result styles */
+.result-legit {
+    color: #1eea6c;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-shadow: 0 0 8px #1eea6c44;
+}
+.result-phishing {
+    color: #ff3e3e;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-shadow: 0 0 8px #ff3e3e44;
+}
+.result-error {
+    color: #ffc107;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-shadow: 0 0 8px #ffc10744;
+}
+
+/* URL preview style */
+.url-preview {
+    font-size: 0.98em;
+    color: #6c757d;
+    background: rgba(255,255,255,0.5);
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    margin-top: 0.5em;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.07);
+}
